@@ -1,0 +1,217 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Cream Revenue Predictor</title>
+   
+    <style>
+    /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+    
+}
+
+.h1 {
+    font-size: 2em;
+    color: #070606;
+    padding-left: 0px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+main {
+    margin-top: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.2em;
+    color: #333;
+}
+
+input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+button {
+    background: #ff7f50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ff6347;
+}
+.intro {
+    font-size: 20px;
+    margin: 10px auto;
+    padding: 30px;
+   
+   
+    
+    
+   
+   
+}
+.image {
+    position:absolute;
+    top: 75%;
+   
+right: 5%;
+    transform: translateY(-50%);
+
+    padding: 10px;
+}
+
+.image img {
+    max-width: 300px; /* Adjust image width as needed */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+
+
+
+
+.intro p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.navbar {
+    background: #ff7f50;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.logo {
+   
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+}
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #999;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+             <img class="logo"  src="static\icelogo.png"   alt="Ice Cream Logo" >
+              <span>  <h1>Ice Cream Revenue Predictor</h1></span>
+          
+        </div>
+    </nav>
+    <div class="intro">
+        <p>
+            Welcome to our Ice Cream Revenue Predictor! Ice cream is a beloved treat that brings joy and 
+            refreshment, especially on hot days. Understanding how weather impacts sales can be crucial 
+            for optimizing your business. This tool allows you to input the temperature and get an 
+            instant prediction of today's ice cream sales revenue. Whether you're a business owner looking 
+            to stock up on supplies, or just curious about the economics of ice cream sales, our predictor 
+            provides valuable insights. The model is based on a simple linear relationship between 
+            temperature and sales, giving you a quick and easy way to anticipate demand. As temperatures 
+            rise, so does the craving for this delightful dessert, making it essential to stay ahead of the 
+            game. So, go ahead and enter the temperature to see how much revenue you can expect. Stay cool, 
+            stay informed, and maximize your ice cream profits with our handy predictor!
+        </p>
+    </div>
+    
+    <div class="container">
+        
+
+        
+        <header>
+           
+            <p>Enter the temperature to predict today's ice cream sales revenue!</p>
+        </header>
+        <main>
+            <form  action="{{url_for('predict')}}" method="post" id="revenue-form">
+                <label for="temperature">Temperature (°C):</label>
+                <input type="text" id="temperature" name="temperature" required>
+                <button type="submit">Predict Revenue</button>
+            </form>
+           
+            <div id="result">
+                <!-- Prediction result will be displayed here -->
+                <h3>{{prediction_text}}</h3>
+            </div>
+
+
+
+        </main>
+
+       
+
+       
+        <footer>
+            <p>Stay cool and enjoy your ice cream!</p>
+        </footer>
+
+
+        <div class="image">
+            <img src="static\ice.png" alt="Ice Cream Image">
+        </div>
+    
+   
+    </div>
+
+    
+   
+
+   
+   
+</body>
+</html>
